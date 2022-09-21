@@ -4,7 +4,7 @@ import { QuestionModel as Question } from "../../model/question";
 export const questions: Record<number, Question> = {
   100: new Question({
     id: 100,
-    question: "What is the name of Harry Potter’s mum?",
+    text: "What is the name of Harry Potter’s mum?",
     answers: [
       Answer.correct("Lily"),
       Answer.incorrect("Poppy"),
@@ -14,7 +14,7 @@ export const questions: Record<number, Question> = {
   }),
   101: new Question({
     id: 101,
-    question: "What is the 2nd Harry Potter book and movie called?",
+    text: "What is the 2nd Harry Potter book and movie called?",
     answers: [
       Answer.correct("Harry Potter and the Chamber of Secrets"),
       Answer.incorrect("Harry Potter and the Order of the Phoenix"),
@@ -24,7 +24,7 @@ export const questions: Record<number, Question> = {
   }),
   102: new Question({
     id: 102,
-    question: "What is the name of Ron’s sister?",
+    text: "What is the name of Ron’s sister?",
     answers: [
       Answer.correct("Ginny"),
       Answer.incorrect("Romilda"),
@@ -34,8 +34,7 @@ export const questions: Record<number, Question> = {
   }),
   103: new Question({
     id: 103,
-    question:
-      "In which city can you find the Warner Bros Harry Potter studios?",
+    text: "In which city can you find the Warner Bros Harry Potter studios?",
     answers: [
       Answer.correct("London"),
       Answer.incorrect("Birmingham"),
@@ -45,7 +44,7 @@ export const questions: Record<number, Question> = {
   }),
   104: new Question({
     id: 104,
-    question: "Who was the Prisoner of Azkaban?",
+    text: "Who was the Prisoner of Azkaban?",
     answers: [
       Answer.correct("Sirius Black"),
       Answer.incorrect("James Potter"),
@@ -55,7 +54,7 @@ export const questions: Record<number, Question> = {
   }),
   105: new Question({
     id: 105,
-    question: "Who was not one of The Marauders?",
+    text: "Who was not one of The Marauders?",
     answers: [
       Answer.correct("Severus Snape"),
       Answer.incorrect("James Potter"),
@@ -65,7 +64,7 @@ export const questions: Record<number, Question> = {
   }),
   106: new Question({
     id: 106,
-    question: "What is the Leaky Cauldron?",
+    text: "What is the Leaky Cauldron?",
     answers: [
       Answer.correct("A pub"),
       Answer.incorrect("A wand shop"),
@@ -75,7 +74,7 @@ export const questions: Record<number, Question> = {
   }),
   107: new Question({
     id: 107,
-    question: "In which country is the Beauxbatons Academy of Magic located?",
+    text: "In which country is the Beauxbatons Academy of Magic located?",
     answers: [
       Answer.correct("France"),
       Answer.incorrect("Romania"),
@@ -85,7 +84,7 @@ export const questions: Record<number, Question> = {
   }),
   108: new Question({
     id: 108,
-    question: "Who was Bellatrix Lestrange the aunt of?",
+    text: "Who was Bellatrix Lestrange the aunt of?",
     answers: [
       Answer.correct("Draco Malfoy"),
       Answer.incorrect("Neville Longbottom"),
@@ -95,7 +94,7 @@ export const questions: Record<number, Question> = {
   }),
   109: new Question({
     id: 109,
-    question: "What was Harry Potter’s pet?",
+    text: "What was Harry Potter’s pet?",
     answers: [
       Answer.correct("An owl"),
       Answer.incorrect("A cat"),
@@ -105,7 +104,7 @@ export const questions: Record<number, Question> = {
   }),
   110: new Question({
     id: 110,
-    question: "Which one of Ron’s siblings does Fleur Delacour marry?",
+    text: "Which one of Ron’s siblings does Fleur Delacour marry?",
     answers: [
       Answer.correct("Bill"),
       Answer.incorrect("George"),
@@ -115,7 +114,7 @@ export const questions: Record<number, Question> = {
   }),
   111: new Question({
     id: 111,
-    question: "Which actress portrayed Professor McGonagall in the movies?",
+    text: "Which actress portrayed Professor McGonagall in the movies?",
     answers: [
       Answer.correct("Maggie Smith"),
       Answer.incorrect("Bonnie Wright"),
@@ -125,7 +124,7 @@ export const questions: Record<number, Question> = {
   }),
   112: new Question({
     id: 112,
-    question: "What creatures guard Azkaban?",
+    text: "What creatures guard Azkaban?",
     answers: [
       Answer.correct("Dementors"),
       Answer.incorrect("Death Eaters"),
@@ -135,8 +134,7 @@ export const questions: Record<number, Question> = {
   }),
   113: new Question({
     id: 113,
-    question:
-      "What is the name of the male house-elf who served the Malfoy family?",
+    text: "What is the name of the male house-elf who served the Malfoy family?",
     answers: [
       Answer.correct("Dobby"),
       Answer.incorrect("Rebeus"),
@@ -146,7 +144,7 @@ export const questions: Record<number, Question> = {
   }),
   114: new Question({
     id: 114,
-    question: "Which colour is associated with Dolores Umbridge?",
+    text: "Which colour is associated with Dolores Umbridge?",
     answers: [
       Answer.correct("Pink"),
       Answer.incorrect("Orange"),
@@ -159,7 +157,7 @@ export const questions: Record<number, Question> = {
 // export const questions: Question[] = [
 //   new Question({
 //     id: 100,
-//     question: "What is the name of Harry Potter’s mum?",
+//     text: "What is the name of Harry Potter’s mum?",
 //     answers: [
 //       Answer.correct("Lily"),
 //       Answer.incorrect("Poppy"),
@@ -169,7 +167,7 @@ export const questions: Record<number, Question> = {
 //   }),
 //   new Question({
 //     id: 101,
-//     question: "What is the 2nd Harry Potter book and movie called?",
+//     text: "What is the 2nd Harry Potter book and movie called?",
 //     answers: [
 //       Answer.correct("Harry Potter and the Chamber of Secrets"),
 //       Answer.incorrect("Harry Potter and the Order of the Phoenix"),
@@ -179,7 +177,7 @@ export const questions: Record<number, Question> = {
 //   }),
 //   new Question({
 //     id: 102,
-//     question: "What is the name of Ron’s sister?",
+//     text: "What is the name of Ron’s sister?",
 //     answers: [
 //       Answer.correct("Ginny"),
 //       Answer.incorrect("Romilda"),
@@ -189,7 +187,7 @@ export const questions: Record<number, Question> = {
 //   }),
 //   new Question({
 //     id: 103,
-//     question:
+//     text:
 //       "In which city can you find the Warner Bros Harry Potter studios?",
 //     answers: [
 //       Answer.correct("London"),
@@ -200,7 +198,7 @@ export const questions: Record<number, Question> = {
 //   }),
 //   new Question({
 //     id: 104,
-//     question: "Who was the Prisoner of Azkaban?",
+//     text: "Who was the Prisoner of Azkaban?",
 //     answers: [
 //       new Answer({ value: "Sirius Black", isCorrect: true }),
 //       new Answer({ value: "James Potter" }),
@@ -210,7 +208,7 @@ export const questions: Record<number, Question> = {
 //   }),
 //   new Question({
 //     id: 105,
-//     question: "Who was not one of The Marauders?",
+//     text: "Who was not one of The Marauders?",
 //     answers: [
 //       new Answer({ value: "Severus Snape", isCorrect: true }),
 //       new Answer({ value: "James Potter" }),
@@ -220,7 +218,7 @@ export const questions: Record<number, Question> = {
 //   }),
 //   new Question({
 //     id: 106,
-//     question: "What is the Leaky Cauldron?",
+//     text: "What is the Leaky Cauldron?",
 //     answers: [
 //       Answer.correct("A pub"),
 //       Answer.incorrect("A wand shop"),
@@ -230,7 +228,7 @@ export const questions: Record<number, Question> = {
 //   }),
 //   new Question({
 //     id: 107,
-//     question: "In which country is the Beauxbatons Academy of Magic located?",
+//     text: "In which country is the Beauxbatons Academy of Magic located?",
 //     answers: [
 //       Answer.correct("France"),
 //       Answer.incorrect("Romania"),
@@ -240,7 +238,7 @@ export const questions: Record<number, Question> = {
 //   }),
 //   new Question({
 //     id: 108,
-//     question: "Who was Bellatrix Lestrange the aunt of?",
+//     text: "Who was Bellatrix Lestrange the aunt of?",
 //     answers: [
 //       Answer.correct("Draco Malfoy"),
 //       Answer.incorrect("Neville Longbottom"),
@@ -250,7 +248,7 @@ export const questions: Record<number, Question> = {
 //   }),
 //   new Question({
 //     id: 109,
-//     question: "What was Harry Potter’s pet?",
+//     text: "What was Harry Potter’s pet?",
 //     answers: [
 //       Answer.correct("An owl"),
 //       Answer.incorrect("A cat"),
@@ -260,7 +258,7 @@ export const questions: Record<number, Question> = {
 //   }),
 //   new Question({
 //     id: 110,
-//     question: "Which one of Ron’s siblings does Fleur Delacour marry?",
+//     text: "Which one of Ron’s siblings does Fleur Delacour marry?",
 //     answers: [
 //       Answer.correct("Bill"),
 //       Answer.incorrect("George"),
@@ -270,7 +268,7 @@ export const questions: Record<number, Question> = {
 //   }),
 //   new Question({
 //     id: 111,
-//     question: "Which actress portrayed Professor McGonagall in the movies?",
+//     text: "Which actress portrayed Professor McGonagall in the movies?",
 //     answers: [
 //       new Answer({ value: "Maggie Smith", isCorrect: true }),
 //       new Answer({ value: "Bonnie Wright" }),
@@ -280,7 +278,7 @@ export const questions: Record<number, Question> = {
 //   }),
 //   new Question({
 //     id: 112,
-//     question: "What creatures guard Azkaban?",
+//     text: "What creatures guard Azkaban?",
 //     answers: [
 //       Answer.correct("Dementors"),
 //       Answer.incorrect("Death Eaters"),
@@ -290,7 +288,7 @@ export const questions: Record<number, Question> = {
 //   }),
 //   new Question({
 //     id: 113,
-//     question:
+//     text:
 //       "What is the name of the male house-elf who served the Malfoy family?",
 //     answers: [
 //       Answer.correct("Dobby"),
@@ -301,7 +299,7 @@ export const questions: Record<number, Question> = {
 //   }),
 //   new Question({
 //     id: 114,
-//     question: "Which colour is associated with Dolores Umbridge?",
+//     text: "Which colour is associated with Dolores Umbridge?",
 //     answers: [
 //       Answer.correct("Pink"),
 //       Answer.incorrect("Orange"),

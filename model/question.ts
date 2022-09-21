@@ -3,7 +3,7 @@ import { AnswerModel } from "./answer";
 
 type InputProps = {
   id: number;
-  question: string;
+  text: string;
   answers: AnswerModel[];
   wasAnsweredCorrectly?: boolean;
   wasAnswered?: boolean;
@@ -11,7 +11,7 @@ type InputProps = {
 
 type OutputProps = {
   id: number;
-  question: string;
+  text: string;
   answers: AnswerModel[];
   wasAnsweredCorrectly: boolean;
   wasAnswered: boolean;
@@ -19,7 +19,7 @@ type OutputProps = {
 
 export class QuestionModel {
   #id: number;
-  #question: string;
+  #text: string;
   #answers: AnswerModel[];
   #wasAnsweredCorrectly: boolean;
   #wasAnswered: boolean;
@@ -27,7 +27,7 @@ export class QuestionModel {
   constructor(props: InputProps) {
     this.#id = props.id;
     this.#answers = props.answers;
-    this.#question = props.question;
+    this.#text = props.text;
 
     this.#wasAnswered = props.wasAnswered || false;
     this.#wasAnsweredCorrectly = props.wasAnsweredCorrectly || false;
@@ -64,10 +64,14 @@ export class QuestionModel {
     return false;
   }
 
+  get text(): string {
+    return this.#text;
+  }
+
   toJSON(): OutputProps {
     return {
       id: this.#id,
-      question: this.#question,
+      text: this.#text,
       wasAnswered: this.#wasAnswered,
       wasAnsweredCorrectly: this.#wasAnsweredCorrectly,
       answers: this.#answers,
