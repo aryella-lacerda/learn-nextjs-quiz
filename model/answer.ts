@@ -37,6 +37,10 @@ export class AnswerModel {
     return this.#isRevealed;
   }
 
+  get value() {
+    return this.#value;
+  }
+
   reveal(): AnswerModel {
     return new AnswerModel({ ...this.toJSON(), isRevealed: true });
   }

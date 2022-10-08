@@ -68,6 +68,10 @@ export class QuestionModel {
     return this.#text;
   }
 
+  get answers() {
+    return this.#answers;
+  }
+
   toJSON(): OutputProps {
     return {
       id: this.#id,

@@ -2,8 +2,10 @@
   padding: 0 2rem;
   display: flex;
   height: 100vh;
-  flex-grow: 1;
-  background: #ddd2bd;
+  justify-content: center;
+  align-items: center;
+  background: #6d51d5;
+  color: #fff;
 }
 
 @media (max-width: 600px) {

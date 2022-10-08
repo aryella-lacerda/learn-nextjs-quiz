@@ -1,0 +1,81 @@
+.container {
+  margin: 10px;
+  width: 80%;
+  height: 100px;
+  min-width: 500px;
+  display: flex;
+}
+
+.content {
+  position: relative;
+  flex: 1;
+}
+
+.front,
+.back {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.back > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  border-radius: 12px;
+}
+
+.isDisabled {
+  pointer-events: none;
+}
+
+.isDimmed {
+  opacity: 0.4;
+}
+
+.correct {
+  background-color: #2baa6d;
+}
+
+.incorrect {
+  background-color: #e44a4c;
+}
+
+.correct .value,
+.incorrect .value {
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+.front {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.letter,
+.text {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.letter {
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: 8px;
+}
+
+.text {
+  color: #333333;
+}
