@@ -5,48 +5,60 @@ type InputProps = {
   id: number;
   text: string;
   answers: AnswerModel[];
-  wasAnsweredCorrectly?: boolean;
-  wasAnswered?: boolean;
+  isAnsweredCorrectly?: boolean;
+  isClosed?: boolean;
+  isTimedOut?: boolean;
 };
 
 type OutputProps = {
   id: number;
   text: string;
   answers: AnswerModel[];
-  wasAnsweredCorrectly: boolean;
-  wasAnswered: boolean;
+  isAnsweredCorrectly: boolean;
+  isClosed: boolean;
+  isTimedOut: boolean;
 };
 
 export class QuestionModel {
   #id: number;
   #text: string;
   #answers: AnswerModel[];
-  #wasAnsweredCorrectly: boolean;
-  #wasAnswered: boolean;
+
+  // Is the question closed for answers?
+  #isClosed: boolean;
+
+  // Did the timer run out?
+  #isTimedOut: boolean;
+
+  // If the user answered, was it correct? If the timer ran out, defaults to false.
+  #isAnsweredCorrectly: boolean;
 
   constructor(props: InputProps) {
     this.#id = props.id;
     this.#answers = props.answers;
     this.#text = props.text;
 
-    this.#wasAnswered = props.wasAnswered || false;
-    this.#wasAnsweredCorrectly = props.wasAnsweredCorrectly || false;
+    this.#isClosed = props.isClosed || false;
+    this.#isTimedOut = props.isTimedOut || false;
+    this.#isAnsweredCorrectly = props.isAnsweredCorrectly || false;
   }
 
   answerWith(index: number): QuestionModel {
-    const wasAnswered = true;
-    const wasAnsweredCorrectly = this.#answers[index]?.isCorrect;
+    const isTimedOut = index === -1;
+    const isClosed = true;
+
+    const isAnsweredCorrectly = this.#answers[index]?.isCorrect || false;
 
     const answers = this.#answers.map((answer, i) => {
       const isUsersAnswer = i === index;
-      const isCorrectAnswer = answer.isCorrect;
-      return isUsersAnswer || isCorrectAnswer ? answer.reveal() : answer;
+      return isUsersAnswer ? answer.choose() : answer;
     });
 
     return new QuestionModel({
       ...this.toJSON(),
-      wasAnswered,
-      wasAnsweredCorrectly,
+      isClosed,
+      isTimedOut,
+      isAnsweredCorrectly,
       answers,
     });
   }
@@ -56,12 +68,20 @@ export class QuestionModel {
     return new QuestionModel({ ...this.toJSON(), answers: shuffledAnswers });
   }
 
-  get isAnswered(): boolean {
-    for (let answer of this.#answers) {
-      if (answer.isRevealed) return true;
-    }
+  get isAnsweredCorrectly(): boolean {
+    return this.#isAnsweredCorrectly;
+  }
 
-    return false;
+  get isTimedOut(): boolean {
+    return this.#isTimedOut;
+  }
+
+  get isClosed(): boolean {
+    return this.#isClosed;
+  }
+
+  get isOpen(): boolean {
+    return !this.#isClosed;
   }
 
   get text(): string {
@@ -76,9 +96,10 @@ export class QuestionModel {
     return {
       id: this.#id,
       text: this.#text,
-      wasAnswered: this.#wasAnswered,
-      wasAnsweredCorrectly: this.#wasAnsweredCorrectly,
+      isClosed: this.#isClosed,
+      isAnsweredCorrectly: this.#isAnsweredCorrectly,
       answers: this.#answers,
+      isTimedOut: this.#isTimedOut,
     };
   }
 }

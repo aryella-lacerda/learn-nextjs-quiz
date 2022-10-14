@@ -1,24 +1,24 @@
 type InputProps = {
   value: string;
   isCorrect?: boolean;
-  isRevealed?: boolean;
+  isChosen?: boolean;
 };
 
 type OutputProps = {
   value: string;
   isCorrect: boolean;
-  isRevealed: boolean;
+  isChosen: boolean;
 };
 
 export class AnswerModel {
   #value: string;
   #isCorrect: boolean;
-  #isRevealed: boolean; // ui state?
+  #isChosen: boolean;
 
   constructor(props: InputProps) {
     this.#value = props.value;
     this.#isCorrect = props.isCorrect || false;
-    this.#isRevealed = props.isRevealed || false;
+    this.#isChosen = props.isChosen || false;
   }
 
   static correct(value: string) {
@@ -33,23 +33,23 @@ export class AnswerModel {
     return this.#isCorrect;
   }
 
-  get isRevealed() {
-    return this.#isRevealed;
+  get isChosen() {
+    return this.#isChosen;
   }
 
   get value() {
     return this.#value;
   }
 
-  reveal(): AnswerModel {
-    return new AnswerModel({ ...this.toJSON(), isRevealed: true });
+  choose(): AnswerModel {
+    return new AnswerModel({ ...this.toJSON(), isChosen: true });
   }
 
   toJSON(): OutputProps {
     return {
       value: this.#value,
       isCorrect: this.#isCorrect,
-      isRevealed: this.#isRevealed,
+      isChosen: this.#isChosen,
     };
   }
 }
