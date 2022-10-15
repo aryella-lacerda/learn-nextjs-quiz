@@ -1,14 +1,26 @@
 .container {
   margin: 10px;
-  width: 80%;
   height: 100px;
-  min-width: 500px;
+  width: 80%;
   display: flex;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  perspective: 1000px;
+}
+
+.container:hover {
+  transform: scale(1.05);
 }
 
 .content {
   position: relative;
   flex: 1;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.content.isRevealed {
+  transform: rotateY(180deg);
 }
 
 .front,
@@ -17,6 +29,12 @@
   display: flex;
   height: 100%;
   width: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
 }
 
 .back > div {
@@ -38,6 +56,7 @@
 
 .correct {
   background-color: #2baa6d;
+  padding: 8px 8px;
 }
 
 .incorrect {
@@ -48,6 +67,7 @@
 .incorrect .value {
   font-size: 1.7rem;
   font-weight: 800;
+  text-align: center;
 }
 
 .front {

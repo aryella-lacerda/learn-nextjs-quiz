@@ -33,10 +33,14 @@ export const Question = ({ question, onAnswer, onTimeUp }: Props) => {
   return (
     <div className={styles.container}>
       <Text>{question.text}</Text>
-      <Timer isPlaying={question.isOpen} onComplete={onTimeUp} />
+      <Timer
+        isPlaying={question.isOpen}
+        onComplete={onTimeUp}
+        key={question.id}
+      />
       {question.answers.map((answer, i) => (
         <Answer
-          key={i}
+          key={answer.value}
           letterValue={letters[i].value}
           letterBgColor={letters[i].color}
           text={answer.value}

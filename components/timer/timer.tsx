@@ -14,8 +14,8 @@ export const Timer = ({ isPlaying, onComplete }: Props) => {
         onComplete={onComplete}
         size={120}
         duration={10}
-        // colors={["#BCE596", "#F7B801", "#ED827A", "#ED827A"]}
-        colors={["#2baa6d", "#F7B801", "#e44a4c", "#e44a4c"]}
+        colors={["#BCE596", "#F7B801", "#ED827A", "#ED827A"]}
+        // colors={["#2baa6d", "#F7B801", "#e44a4c", "#e44a4c"]}
         colorsTime={[10, 6.66, 3.33, 0]}
       >
         {({ remainingTime }) => remainingTime}

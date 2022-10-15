@@ -1,9 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { QuestionModel } from "../../../model/question";
+import { QuestionModelOutput } from "../../../model/question";
 import { questions } from "../database";
 
-type Data = QuestionModel | undefined;
+type Data = QuestionModelOutput | undefined;
 
 export default function handler(
   req: NextApiRequest,
@@ -11,8 +11,7 @@ export default function handler(
 ) {
   const id = Number(req.query.id);
   const response = questions[id]?.shuffleAnswers();
-  const testing = response?.answerWith(0);
 
-  if (response) res.status(200).json(testing);
+  if (response) res.status(200).json(response);
   else res.status(204).send(undefined);
 }

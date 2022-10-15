@@ -1,10 +1,10 @@
-type InputProps = {
+type AnswerModelInput = {
   value: string;
   isCorrect?: boolean;
   isChosen?: boolean;
 };
 
-type OutputProps = {
+export type AnswerModelOutput = {
   value: string;
   isCorrect: boolean;
   isChosen: boolean;
@@ -15,7 +15,7 @@ export class AnswerModel {
   #isCorrect: boolean;
   #isChosen: boolean;
 
-  constructor(props: InputProps) {
+  constructor(props: AnswerModelInput) {
     this.#value = props.value;
     this.#isCorrect = props.isCorrect || false;
     this.#isChosen = props.isChosen || false;
@@ -45,7 +45,7 @@ export class AnswerModel {
     return new AnswerModel({ ...this.toJSON(), isChosen: true });
   }
 
-  toJSON(): OutputProps {
+  toJSON(): AnswerModelOutput {
     return {
       value: this.#value,
       isCorrect: this.#isCorrect,

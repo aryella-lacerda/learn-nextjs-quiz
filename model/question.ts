@@ -1,7 +1,7 @@
 import { shuffle } from "../utils/array/shuffle";
-import { AnswerModel } from "./answer";
+import { AnswerModel, AnswerModelOutput } from "./answer";
 
-type InputProps = {
+type QuestionModelInput = {
   id: number;
   text: string;
   answers: AnswerModel[];
@@ -10,10 +10,10 @@ type InputProps = {
   isTimedOut?: boolean;
 };
 
-type OutputProps = {
+export type QuestionModelOutput = {
   id: number;
   text: string;
-  answers: AnswerModel[];
+  answers: AnswerModelOutput[];
   isAnsweredCorrectly: boolean;
   isClosed: boolean;
   isTimedOut: boolean;
@@ -33,7 +33,7 @@ export class QuestionModel {
   // If the user answered, was it correct? If the timer ran out, defaults to false.
   #isAnsweredCorrectly: boolean;
 
-  constructor(props: InputProps) {
+  constructor(props: QuestionModelInput) {
     this.#id = props.id;
     this.#answers = props.answers;
     this.#text = props.text;
@@ -68,6 +68,10 @@ export class QuestionModel {
     return new QuestionModel({ ...this.toJSON(), answers: shuffledAnswers });
   }
 
+  get id(): number {
+    return this.#id;
+  }
+
   get isAnsweredCorrectly(): boolean {
     return this.#isAnsweredCorrectly;
   }
@@ -92,13 +96,21 @@ export class QuestionModel {
     return this.#answers;
   }
 
-  toJSON(): OutputProps {
+  static fromJSON(question: QuestionModelOutput): QuestionModel {
+    const answers = question.answers.map((answer) => new AnswerModel(answer));
+    return new QuestionModel({
+      ...question,
+      answers,
+    });
+  }
+
+  toJSON(): QuestionModelOutput {
     return {
       id: this.#id,
       text: this.#text,
       isClosed: this.#isClosed,
       isAnsweredCorrectly: this.#isAnsweredCorrectly,
-      answers: this.#answers,
+      answers: this.#answers.map((answer) => answer.toJSON()),
       isTimedOut: this.#isTimedOut,
     };
   }
