@@ -7,7 +7,7 @@ import { QuestionModel, QuestionModelOutput } from "../model/question";
 import styles from "../styles/index.module.css";
 
 const NOT_FOUND = -1;
-const BASE_URL = "http://localhost:3000/api";
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const Home: NextPage = () => {
   const router = useRouter();
